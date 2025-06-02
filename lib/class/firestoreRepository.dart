@@ -8,9 +8,12 @@ class FirestoreRepository{
   late CollectionReference ref;
 
   // get stream of documents in the collection
-  Stream<QuerySnapshot> stream(String uid) => ref.snapshots();
+  Stream<QuerySnapshot> stream() => ref.snapshots();
 
   // get all documents in the collection
+  Future<QuerySnapshot<Object?>> fetch() => ref.get();
+
+  // get all documents in the collection with a specific field value
   Future<DocumentSnapshot?> get(String id) => ref.doc(id).get();
 
   // Create|Update or set a document in the collection with merge option
