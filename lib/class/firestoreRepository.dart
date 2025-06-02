@@ -8,7 +8,7 @@ class FirestoreRepository{
   late CollectionReference ref;
 
   // get stream of documents in the collection
-  Stream<QuerySnapshot> stream() => ref.snapshots();
+  Stream<QuerySnapshot> stream(dynamic id) => ref.snapshots();
 
   // get all documents in the collection
   Future<QuerySnapshot<Object?>> fetch() => ref.get();
